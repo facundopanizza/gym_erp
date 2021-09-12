@@ -1,0 +1,31 @@
+<% content_for :heading, "Profesor: #{@teacher.to_s}" %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @teacher.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @teacher.last_name %>
+</p>
+
+<p>
+  <strong>Dni:</strong>
+  <%= @teacher.dni %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @teacher.phone_number %>
+</p>
+
+<p>
+  <strong>Birthday:</strong>
+  <%= @teacher.birthday %>
+</p>
+
+<%= link_to 'Editar', edit_teacher_path(@teacher), class: "btn btn-primary me-3" %>
+<%= link_to t(:back), teachers_path, class: "btn btn-secondary me-3" %>

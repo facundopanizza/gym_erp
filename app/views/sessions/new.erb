@@ -1,0 +1,13 @@
+<% content_for :heading, "Iniciar Sesión" %>
+
+<%= form_with(url: sessions_path) do |f| %>
+  <div class="mb-3">
+    <%= f.label :email, "Email *", class: "form-label" %>
+    <%= f.email_field :email, class: "form-control", required: true %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :password, "Password *", class: "form-label" %>
+    <%= f.password_field :password, class: "form-control", required: true %>
+  </div>
+  <%= f.submit "Iniciar Sesión", class: "btn btn-primary" %>
+<% end %>

@@ -1,0 +1,58 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">Gym</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <% if current_user %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="profesores" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Usuarios
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><%= link_to "Ver todos", users_path, class: "dropdown-item" %>
+                <li><%= link_to "Nuevo", new_user_path, class: "dropdown-item" %>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="profesores" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Profesores
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><%= link_to "Ver todos", teachers_path, class: "dropdown-item" %>
+                <li><%= link_to "Nuevo", new_teacher_path, class: "dropdown-item" %>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="profesores" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Clientes
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><%= link_to "Ver todos", clients_path, class: "dropdown-item" %>
+                <li><%= link_to "Nuevo", new_client_path, class: "dropdown-item" %>
+              </ul>
+            </li>
+          <% end %>
+        </ul>
+
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <% if current_user %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="profesores" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= current_user.to_s %>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><%= link_to "Cerrar Sesión",  sessions_path, method: :delete, class: "dropdown-item" %>
+            </ul>
+          </li>
+          <% else %>
+            <%= link_to "Iniciar Sesión", new_sessions_path, class: "dropdown-item" %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

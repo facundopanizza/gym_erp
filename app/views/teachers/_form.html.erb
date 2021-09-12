@@ -1,0 +1,31 @@
+<%= simple_form_for(@teacher) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <div class="mb-3">
+      <%= f.input :first_name %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.input :last_name %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.input :dni %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.input :phone_number %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.input :birthday, start_year: 1900, end_year: Time.now.year, order: [ :day, :month, :year ] %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-primary me-3" %>
+    <%= link_to t('atras'), teachers_path, class: "btn btn-secondary" %>
+  </div>
+<% end %>

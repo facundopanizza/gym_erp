@@ -1,0 +1,35 @@
+<% content_for :heading, "Cliente: #{@client.first_name} #{@client.last_name}"%>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @client.first_name %>
+</p>
+
+<p>
+  <strong>Apellido:</strong>
+  <%= @client.last_name %>
+</p>
+
+<p>
+  <strong>DNI:</strong>
+  <%= @client.dni %>
+</p>
+
+<p>
+  <strong>Número de teléfono:</strong>
+  <%= @client.phone_number %>
+</p>
+
+<p>
+  <strong>Fecha de Nacimiento:</strong>
+  <%= @client.birthday %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @client.email %>
+</p>
+
+<%= link_to 'Editar', edit_client_path(@client), class: "btn btn-primary me-3" %>
+<%= link_to t(:back), clients_path, class: "btn btn-secondary" %>

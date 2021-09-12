@@ -1,0 +1,16 @@
+<% content_for :heading, "Usuario: #{@user.email}" %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Profesor:</strong>
+  <%= link_to "#{@user.teacher.first_name} #{@user.teacher.last_name}", teacher_path(@user.teacher) %>
+</p>
+
+<%= link_to 'Editar', edit_user_path(@user), class: "btn btn-primary me-3" %>
+<%= link_to t(:back), users_path, class: "btn btn-secondary" %>
