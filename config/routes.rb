@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :prices
+  resources :activities
+  root 'clients#index';
+
   resources :users
   resources :clients
   resources :teachers

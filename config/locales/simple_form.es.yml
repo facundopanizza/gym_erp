@@ -9,11 +9,16 @@ es:
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
-      default_message: "Porfavor revisa lo siguiente:"
+      default_message: "Por favor revisa lo siguiente:"
     labels:
       defaults:
         teacher: "Profesor"
         user: "Usuario"
+        activity: "Actividad"
+        price: "Precio"
+        amount: "Precio"
+        description: "Descripción"
+        name: "Nombre"
         first_name: "Nombre"
         last_name: "Apellido"
         dni: "DNI"

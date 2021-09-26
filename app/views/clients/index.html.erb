@@ -1,7 +1,20 @@
 <% content_for :heading, "Clientes" %>
 
-<table class="table table-striped table-hover">
-  <thead>
+<form>
+  <div class="row">
+    <div class="col-md-8 col-12">
+      <input class="form-control" name="term" type="search" placeholder="12312312" aria-label="Buscar" value="<%= @term ? @term : '' %>" autofocus>
+    </div>
+    <div class="col-md-4 col-12 d-flex mt-2 mt-md-0">
+      <button class="btn btn-success flex-grow-1 me-2" type="submit">Buscar</button>
+      <%= link_to "Limpiar", clients_path, class: "flex-grow-1 btn btn-outline-danger" %>
+    </div>
+  </div>
+</form>
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
     <tr>
       <th>Nombre</th>
       <th>Apellido</th>
@@ -11,9 +24,9 @@
       <th>Fecha de Nacimiento</th>
       <th colspan="3"></th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% @clients.each do |client| %>
       <tr>
         <td><%= client.first_name %></td>
@@ -27,5 +40,6 @@
         <td><%= link_to 'Eliminar', client, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
       </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>

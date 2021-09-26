@@ -4,6 +4,16 @@ class ClientsController < ApplicationController
 
   # GET /clients or /clients.json
   def index
+    if params[:term]
+      @clients = Client.where('first_name like ?', "%#{params[:term]}%")
+                       .or(Client.where('last_name like ?', "%#{params[:term]}%"))
+                       .or(Client.where('email like ?', "%#{params[:term]}%"))
+                       .or(Client.where(dni: params[:term]))
+                       .or(Client.where('first_name || " " || last_name like ?', "%#{params[:term]}%"))
+      @term = params[:term]
+      return
+    end
+
     @clients = Client.all
   end
 

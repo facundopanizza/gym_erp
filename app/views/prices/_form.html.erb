@@ -1,23 +1,24 @@
-<%= simple_form_for(@user) do |f| %>
+
+<%= simple_form_for(@price) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
     <div class="mb-3">
-      <%= f.input :email %>
+      <%= f.input :amount %>
     </div>
 
     <div class="mb-3">
-      <%= f.input :password %>
+      <%= f.input :description %>
     </div>
 
     <div class="mb-3">
-      <%= f.association :teacher, label_method: :to_label, prompt: "Selecciona un profesor" %>
+      <%= f.hidden_field :activity_id, value: @price.activity_id %>
     </div>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit, class: "btn btn-primary me-3" %>
-    <%= link_to t(:back), users_path, class: "btn btn-secondary" %>
+    <%= link_to t('atras'), @price.activity, class: "btn btn-secondary" %>
   </div>
 <% end %>

@@ -35,4 +35,5 @@ es:
     models:
       user: "Usuario"
       teacher: "Profesor"
-      client: "Cliente"
+      activity: "Actividad"
+      price: "Precio"
