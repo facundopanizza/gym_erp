@@ -8,13 +8,12 @@ class ActivitiesController < ApplicationController
 
   # GET /activities/1 or /activities/1.json
   def show
-    @price = Price.new
-    @price.activity = @activity
   end
 
   # GET /activities/new
   def new
     @activity = Activity.new
+    @price = Price.new
   end
 
   # GET /activities/1/edit
@@ -66,6 +65,6 @@ class ActivitiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def activity_params
-      params.require(:activity).permit(:name)
+      params.require(:activity).permit(:name, price_attributes: [:amount] )
     end
 end

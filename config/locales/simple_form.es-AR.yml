@@ -1,4 +1,4 @@
-es:
+es-AR:
   simple_form:
     "yes": 'Yes'
     "no": 'No'
@@ -16,6 +16,7 @@ es:
         user: "Usuario"
         activity: "Actividad"
         price: "Precio"
+        subscription: "Cuota"
         amount: "Precio"
         description: "Descripción"
         name: "Nombre"

@@ -5,57 +5,10 @@
   <%= @activity.name %>
 </p>
 
-<hr/>
-
-<h3>Precios</h3>
-
-<%= simple_form_for(@price) do |f| %>
-  <div class="mb-3">
-    <%= f.error_notification %>
-    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-    <div class="form-inputs">
-      <div class="mb-3">
-        <%= f.input :amount %>
-      </div>
-
-      <div class="mb-3">
-        <%= f.input :description %>
-      </div>
-
-      <%= f.hidden_field :activity_id, value: @activity.id %>
-    </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, class: "btn btn-outline-primary me-3" %>
-    </div>
-  </div>
-<% end %>
-
-<div class="table-responsive">
-  <table class="table table-striped table-hover">
-    <thead>
-    <tr>
-      <th>Precio</th>
-      <th>Descripción</th>
-      <th>Actualizado</th>
-      <th colspan="3"></th>
-    </tr>
-    </thead>
-
-    <tbody>
-    <% @activity.prices.each do |price| %>
-      <tr>
-        <td><%= number_to_currency(price.amount, unit: "$") %></td>
-        <td><%= price.description %></td>
-        <td><%= price.updated_at.strftime("%d/%m/%Y") %></td>
-        <td><%= link_to 'Editar', edit_price_path(price) %></td>
-        <td><%= link_to 'Eliminar', price, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
-</div>
+<p>
+  <strong>Precio:</strong>
+  <%= number_to_currency(@activity.price.amount) %>
+</p>
 
 <%= link_to 'Editar', edit_activity_path(@activity), class: "btn btn-primary me-3" %>
 <%= link_to t(:back), activities_path, class: "btn btn-secondary" %>

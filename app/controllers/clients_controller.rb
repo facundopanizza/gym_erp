@@ -19,6 +19,8 @@ class ClientsController < ApplicationController
 
   # GET /clients/1 or /clients/1.json
   def show
+    @subscription = Subscription.new
+    @payment = Payment.new
   end
 
   # GET /clients/new
@@ -49,6 +51,7 @@ class ClientsController < ApplicationController
   def update
     respond_to do |format|
       if @client.update(client_params)
+        @client.generate_barcode
         format.html { redirect_to @client, notice: "Client was successfully updated." }
         format.json { render :show, status: :ok, location: @client }
       else
@@ -75,6 +78,6 @@ class ClientsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def client_params
-      params.require(:client).permit(:first_name, :last_name, :dni, :phone_number, :birthday, :email)
+      params.require(:client).permit(:first_name, :last_name, :dni, :phone_number, :birthday, :email, :medic_file)
     end
 end

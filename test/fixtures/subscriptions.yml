@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  initial_date: 2021-09-26
+  end_date: 2021-09-26
+  price: 9.99
+  payed: false
+  activity: one
+  client: one
+
+two:
+  initial_date: 2021-09-26
+  end_date: 2021-09-26
+  price: 9.99
+  payed: false
+  activity: two
+  client: two

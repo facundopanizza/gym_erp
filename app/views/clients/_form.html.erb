@@ -25,7 +25,11 @@
     </div>
 
     <div class="mb-3">
-      <%= f.input :birthday %>
+      <%= f.file_field :medic_file %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.input :birthday, start_year: 1900, end_year: Time.now.year, order: [ :day, :month, :year ]%>
     </div>
   </div>
 

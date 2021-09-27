@@ -14,7 +14,7 @@
 #
 #     I18n.locale = :es
 #
-# This would use the information in config/locales/es.yml.
+# This would use the information in config/locales/es-AR.yml.
 #
 # The following keys must be escaped otherwise they will not be retrieved by
 # the default I18n backend:
@@ -29,7 +29,7 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
-es:
+es-AR:
   back: "Atras"
   activerecord:
     models:
@@ -37,3 +37,5 @@ es:
       teacher: "Profesor"
       activity: "Actividad"
       price: "Precio"
+      client: "Cliente"
+      subscription: "Cuota"

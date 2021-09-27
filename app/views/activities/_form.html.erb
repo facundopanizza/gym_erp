@@ -6,6 +6,12 @@
     <div class="mb-3">
       <%= f.input :name %>
     </div>
+
+    <%= f.simple_fields_for :price, @price do |g| %>
+      <div class="mb-3">
+        <%= g.input :amount %>
+      </div>
+    <% end %>
   </div>
 
   <div class="form-actions">
