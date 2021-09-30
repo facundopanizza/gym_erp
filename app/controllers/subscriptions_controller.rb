@@ -25,13 +25,11 @@ class SubscriptionsController < ApplicationController
 
     respond_to do |format|
       if @subscription.save
-        @subscription.end_date = @subscription.initial_date.end_of_month
-        @subscription.price = @subscription.activity.price.amount
-        @subscription.save
         format.html { redirect_to @subscription.client, notice: "Subscription was successfully created." }
         format.json { render :show, status: :created, location: @subscription }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        @client = @subscription.client
+        format.html { render 'clients/show', status: :unprocessable_entity }
         format.json { render json: @subscription.errors, status: :unprocessable_entity }
       end
     end
@@ -67,6 +65,6 @@ class SubscriptionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def subscription_params
-      params.require(:subscription).permit(:initial_date, :end_date, :price, :payed, :activity_id, :client_id)
+      params.require(:subscription).permit(:activity_id, :client_id, :subscribed)
     end
 end

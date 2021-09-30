@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_27_011836) do
+ActiveRecord::Schema.define(version: 2021_09_27_155921) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -57,12 +57,22 @@ ActiveRecord::Schema.define(version: 2021_09_27_011836) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "payments", force: :cascade do |t|
-    t.decimal "amount"
+  create_table "fees", force: :cascade do |t|
+    t.date "initial_date"
+    t.date "end_date"
+    t.boolean "payed"
     t.integer "subscription_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["subscription_id"], name: "index_payments_on_subscription_id"
+    t.index ["subscription_id"], name: "index_fees_on_subscription_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.decimal "amount"
+    t.integer "fee_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["fee_id"], name: "index_payments_on_fee_id"
   end
 
   create_table "prices", force: :cascade do |t|
@@ -75,12 +85,9 @@ ActiveRecord::Schema.define(version: 2021_09_27_011836) do
   end
 
   create_table "subscriptions", force: :cascade do |t|
-    t.date "initial_date"
-    t.date "end_date"
-    t.decimal "price"
-    t.boolean "payed", default: false
     t.integer "activity_id", null: false
     t.integer "client_id", null: false
+    t.boolean "subscribed", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["activity_id"], name: "index_subscriptions_on_activity_id"
@@ -108,7 +115,8 @@ ActiveRecord::Schema.define(version: 2021_09_27_011836) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "payments", "subscriptions"
+  add_foreign_key "fees", "subscriptions"
+  add_foreign_key "payments", "fees"
   add_foreign_key "prices", "activities"
   add_foreign_key "subscriptions", "activities"
   add_foreign_key "subscriptions", "clients"
