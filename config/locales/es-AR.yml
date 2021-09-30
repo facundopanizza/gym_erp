@@ -42,3 +42,20 @@ es-AR:
     attributes:
       subscription:
         price: "Precio"
+        activity: "Actividad"
+      user:
+        teacher: "Profesor"
+      teacher:
+        first_name: "Nombre"
+        last_name: "Apellido"
+        phone_number: "Número de teléfono"
+      client:
+        first_name: "Nombre"
+        last_name: "Apellido"
+        phone_number: "Número de teléfono"
+      activity:
+        name: "Nombre"
+        price: "Precio"
+      payment:
+        amount: "Precio"
+        description: "Descripcion"

@@ -25,7 +25,7 @@ class PricesController < ApplicationController
 
     respond_to do |format|
       if @price.save
-        format.html { redirect_to @price.activity, notice: "Price was successfully created." }
+        format.html { redirect_to @price.activity, notice: "El precio ha sido creado." }
         format.json { render :show, status: :created, location: @price }
       else
         @activity = @price.activity
@@ -39,7 +39,7 @@ class PricesController < ApplicationController
   def update
     respond_to do |format|
       if @price.update(price_params)
-        format.html { redirect_to @price.activity, notice: "Price was successfully updated." }
+        format.html { redirect_to @price.activity, notice: "El precio ha sido editado." }
         format.json { render :show, status: :ok, location: @price }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class PricesController < ApplicationController
   def destroy
     @price.destroy
     respond_to do |format|
-      format.html { redirect_to @price.activity, notice: "Price was successfully destroyed." }
+      format.html { redirect_to @price.activity, notice: "El precio ha sido borrado." }
       format.json { head :no_content }
     end
   end

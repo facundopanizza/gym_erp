@@ -22,7 +22,8 @@ test:
 
 production:
   <<: *default
-  adapter: postgresql
-  database: gym
-  username: gym
-  password: <%= ENV['GYM_DATABASE_PASSWORD'] %>
+  adapter: mysql2
+  database: gym_erp
+  hostname: 127.0.0.1
+  username: root
+  password: facundo

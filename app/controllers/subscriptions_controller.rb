@@ -28,7 +28,7 @@ class SubscriptionsController < ApplicationController
         @subscription.end_date = @subscription.initial_date.end_of_month
         @subscription.price = @subscription.activity.price.amount
         @subscription.save
-        format.html { redirect_to @subscription.client, notice: "Subscription was successfully created." }
+        format.html { redirect_to @subscription.client, notice: "La cuota ha sido creada." }
         format.json { render :show, status: :created, location: @subscription }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -43,7 +43,7 @@ class SubscriptionsController < ApplicationController
     @subscription.price = @subscription.activity.price.amount
     respond_to do |format|
       if @subscription.update(subscription_params)
-        format.html { redirect_to @subscription.client, notice: "Subscription was successfully updated." }
+        format.html { redirect_to @subscription.client, notice: "La cuota ha sido editada." }
         format.json { render :show, status: :ok, location: @subscription }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -56,7 +56,7 @@ class SubscriptionsController < ApplicationController
   def destroy
     @subscription.destroy
     respond_to do |format|
-      format.html { redirect_to @subscription.client, notice: "Subscription was successfully destroyed." }
+      format.html { redirect_to @subscription.client, notice: "La cuota ha sido borrada." }
       format.json { head :no_content }
     end
   end
