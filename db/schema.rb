@@ -77,8 +77,8 @@ ActiveRecord::Schema.define(version: 2021_09_27_011836) do
   create_table "subscriptions", force: :cascade do |t|
     t.date "initial_date"
     t.date "end_date"
-    t.decimal "price"
     t.boolean "payed", default: false
+    t.decimal "price"
     t.integer "activity_id", null: false
     t.integer "client_id", null: false
     t.datetime "created_at", precision: 6, null: false

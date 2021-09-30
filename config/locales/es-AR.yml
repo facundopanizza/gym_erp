@@ -36,6 +36,9 @@ es-AR:
       user: "Usuario"
       teacher: "Profesor"
       activity: "Actividad"
-      price: "Precio"
+      payment: "Pago"
       client: "Cliente"
       subscription: "Cuota"
+    attributes:
+      subscription:
+        price: "Precio"

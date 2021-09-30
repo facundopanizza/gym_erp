@@ -23,6 +23,10 @@ class Client < ApplicationRecord
     current_subscription.first.payed
   end
 
+  def activities
+    Subscription.where(client_id: id).select('*').distinct.eager_load(:activity)
+  end
+
   def get_barcode
     fname = "#{dni}.png"
 

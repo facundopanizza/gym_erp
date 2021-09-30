@@ -21,6 +21,7 @@ class ClientsController < ApplicationController
   def show
     @subscription = Subscription.new
     @payment = Payment.new
+    @activities = @client.activities
   end
 
   # GET /clients/new

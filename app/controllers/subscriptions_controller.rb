@@ -39,9 +39,11 @@ class SubscriptionsController < ApplicationController
 
   # PATCH/PUT /subscriptions/1 or /subscriptions/1.json
   def update
+    @subscription.end_date = params[:initial_date]
+    @subscription.price = @subscription.activity.price.amount
     respond_to do |format|
       if @subscription.update(subscription_params)
-        format.html { redirect_to @subscription, notice: "Subscription was successfully updated." }
+        format.html { redirect_to @subscription.client, notice: "Subscription was successfully updated." }
         format.json { render :show, status: :ok, location: @subscription }
       else
         format.html { render :edit, status: :unprocessable_entity }
