@@ -4,8 +4,6 @@ class Subscription < ApplicationRecord
   has_many :payments, dependent: :destroy
 
   validates :initial_date, presence: true
-  validates :end_date, presence: true
-  validates :price, presence: true, numericality: true
 
   def can_access
     subscription = Subscription.where(

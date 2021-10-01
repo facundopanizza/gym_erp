@@ -39,10 +39,10 @@ class SubscriptionsController < ApplicationController
 
   # PATCH/PUT /subscriptions/1 or /subscriptions/1.json
   def update
-    @subscription.end_date = params[:initial_date]
-    @subscription.price = @subscription.activity.price.amount
     respond_to do |format|
       if @subscription.update(subscription_params)
+        @subscription.end_date = @subscription.initial_date.end_of_month
+        @subscription.price = @subscription.activity.price
         format.html { redirect_to @subscription.client, notice: "La cuota ha sido editada." }
         format.json { render :show, status: :ok, location: @subscription }
       else
