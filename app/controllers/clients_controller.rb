@@ -9,7 +9,7 @@ class ClientsController < ApplicationController
                        .or(Client.where('last_name like ?', "%#{params[:term]}%"))
                        .or(Client.where('email like ?', "%#{params[:term]}%"))
                        .or(Client.where(dni: params[:term]))
-                       .or(Client.where('CONCAT(first_name," ",last_name) like ?', "%#{params[:term]}%"))
+                       .or(Client.where('first_name || " " || last_name like ?', "%#{params[:term]}%"))
       @term = params[:term]
       return
     end

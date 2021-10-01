@@ -22,8 +22,4 @@ test:
 
 production:
   <<: *default
-  adapter: postgresql
-  database: gym_erp
-  hostname: 127.0.0.1
-  username: postgres
-  password: facundo
+  database: db/production.sqlite3
