@@ -3,8 +3,8 @@ require 'barby/barcode'
 require 'barby/outputter/cairo_outputter'
 
 class Client < ApplicationRecord
-  has_many :subscriptions
-  has_one_attached :medic_file
+  has_many :subscriptions, dependent: :destroy
+  has_one_attached :medic_file, dependent: :destroy
 
   validates :first_name, :last_name, :dni, :birthday, :phone_number, :email, presence: true
   validates :dni, uniqueness: true
@@ -24,7 +24,7 @@ class Client < ApplicationRecord
   end
 
   def activities
-    Subscription.where(client_id: id).select('*').distinct.eager_load(:activity)
+    @subscriptions = Subscription.where(client_id: id).eager_load(:activity).group_by(&:activity_id)
   end
 
   def get_barcode

@@ -51,11 +51,11 @@
       </tr>
     </thead>
     <tbody>
-      <% @activities.each do |activity| %>
+      <% @activities.each do |id, subscription| %>
         <tr>
-          <td><%= activity.activity.name %></td>
+          <td><%= subscription.first.activity.name %></td>
           <td>
-            <% if activity.can_access %>
+            <% if subscription.first.can_access %>
               <span class="badge bg-success" style="padding: 7px 15px">Si</span>
             <% else %>
               <span class="badge bg-danger" style="padding: 7px 15px">No</span>
