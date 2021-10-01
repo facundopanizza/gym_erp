@@ -42,7 +42,7 @@ class SubscriptionsController < ApplicationController
     respond_to do |format|
       if @subscription.update(subscription_params)
         @subscription.end_date = @subscription.initial_date.end_of_month
-        @subscription.price = @subscription.activity.price
+        @subscription.save
         format.html { redirect_to @subscription.client, notice: "La cuota ha sido editada." }
         format.json { render :show, status: :ok, location: @subscription }
       else
