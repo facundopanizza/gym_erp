@@ -52,7 +52,6 @@ class ClientsController < ApplicationController
   def update
     respond_to do |format|
       if @client.update(client_params)
-        @client.generate_barcode
         format.html { redirect_to @client, notice: "El cliente ha sido editado." }
         format.json { render :show, status: :ok, location: @client }
       else

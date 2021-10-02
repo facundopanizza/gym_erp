@@ -36,7 +36,9 @@
       <%= @client.email %>
     </p>
 
-    <%= link_to 'Descargar ficha medica', rails_blob_path(@client.medic_file, disposition: :attachment), class: 'btn btn-outline-success' %>
+    <% if @client.medic_file.attached? %>
+      <%= link_to 'Descargar ficha médica', rails_blob_path(@client.medic_file, disposition: :attachment), class: 'btn btn-outline-success' %>
+    <% end %>
   </div>
 </div>
 

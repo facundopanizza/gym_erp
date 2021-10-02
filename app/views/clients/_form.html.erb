@@ -25,7 +25,10 @@
     </div>
 
     <div class="mb-3">
-      <%= f.file_field :medic_file %>
+      <div class="form-label">
+        <label>Ficha Médica</label>
+      </div>
+      <%= f.file_field :medic_file, class: 'form-control' %>
     </div>
 
     <div class="mb-3">
