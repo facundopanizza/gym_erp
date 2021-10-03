@@ -28,14 +28,10 @@ class Client < ApplicationRecord
   end
 
   def get_barcode
-    fname = "#{dni}.png"
-
     barcode = Barby::Code128B.new(dni)
     outputter = Barby::CairoOutputter.new(barcode)
     outputter.height = 90
     outputter.xdim = 2
-
-    File.open(fname, 'w') { |f| f.write outputter.to_png }
 
     Base64.encode64(outputter.to_png)
   end
